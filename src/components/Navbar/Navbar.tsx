@@ -46,11 +46,11 @@ export default function Navbar({ children }: NavbarProps) {
                         </NavigationMenu>
                         <Link href="/cart" legacyBehavior passHref>
                             <NavigationMenu className={cn(navigationMenuTriggerStyle())}>
-                                Buy
+                                Cart
                             </NavigationMenu>
                         </Link>
-                        <Link href="/" legacyBehavior passHref>
-                            <NavigationMenu className={navigationMenuTriggerStyle()}>About us
+                        <Link href="/login" legacyBehavior passHref>
+                            <NavigationMenu className={cn(navigationMenuTriggerStyle(), "bg-black text-white")}>Log in
                             </NavigationMenu>
                         </Link>
                     </NavigationMenuItem>
