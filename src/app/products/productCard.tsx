@@ -41,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </CardContent>
             <CardFooter className="flex flex-row justify-between items-center">
                 <p className="font-bold">${precio}</p>
-                <Button onClick={() => { setAlert(true), addToCartFunction(product, alert) }}>
+                <Button onClick={() => { setAlert(true), addToCartFunction(product) }}>
                     <ShoppingCart />
                 </Button>
             </CardFooter>
