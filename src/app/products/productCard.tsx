@@ -1,3 +1,4 @@
+'use client'
 interface ProductCardProps {
     product: {
         id: number;
@@ -14,6 +15,7 @@ interface ProductCardProps {
     };
 }
 
+import addToCartFunction from "@/components/ui/AddToCartButton";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -24,9 +26,11 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { ShoppingCart } from "lucide-react";
+import { useState } from "react";
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const { titulo, descripcion, precio, tamanio, tipoDeHoja } = product;
+    const [alert, setAlert] = useState(false)
     return (
         <Card className="w-[270px] h-[200px] p-2">
             <CardHeader>
@@ -37,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </CardContent>
             <CardFooter className="flex flex-row justify-between items-center">
                 <p className="font-bold">${precio}</p>
-                <Button>
+                <Button onClick={() => { setAlert(true), addToCartFunction(product, alert) }}>
                     <ShoppingCart />
                 </Button>
             </CardFooter>

@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 export function InputItem() {
     return (
         <div className="flex flex-col w-full items-start gap-1.5 justify-start">
-            <Label htmlFor="notebooks">Filter</Label>
+            <Label htmlFor="notebooks">Search</Label>
             <Input id="notebooks" type="text" className="" />
         </div>
     )

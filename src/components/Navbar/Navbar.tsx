@@ -37,9 +37,13 @@ export default function Navbar({ children }: NavbarProps) {
                                 <NavigationMenuItem>
                                     <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
                                     <NavigationMenuContent className="gap-2 p-3 min-w-[110px] text-sm flex flex-col justify-center items-center shadow-none">
-                                        <NavigationMenuLink href="/dark">Dark</NavigationMenuLink>
-                                        <NavigationMenuLink href="/ligth" >Ligth</NavigationMenuLink>
-                                        <NavigationMenuLink href="/sale">On Sale</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Duradero" className="hover:bg-gray-100 px-3 py-1 rounded">Duradero</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Punteadas" className="hover:bg-gray-100 px-3 py-1 rounded">Punteadas</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Blanco" className="hover:bg-gray-100 px-3 py-1 rounded">Blanco</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Elegante" className="hover:bg-gray-100 px-3 py-1 rounded">Elegante</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Sostenible" className="hover:bg-gray-100 px-3 py-1 rounded">Sostenible</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Cuadriculadas" className="hover:bg-gray-100 px-3 py-1 rounded">Cuadriculadas</NavigationMenuLink>
+                                        <NavigationMenuLink href="/products/Blanco" className="hover:bg-gray-100 px-3 py-1 rounded">Blanco</NavigationMenuLink>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>
                             </NavigationMenuList>

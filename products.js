@@ -1,3 +1,6 @@
+import { db } from "./firebase.js";
+import { collection, addDoc } from "firebase/firestore";
+
 export const productsStore = [
     {
         "id": 1,
@@ -11,7 +14,7 @@ export const productsStore = [
         "coloresDisponibles": ["Blanco"],
         "extras": ["Cinta marcadora", "Elástico de cierre"],
         "disponible": true,
-        "categoria": ["Minimalista", "Rayadas", "Sostenible"]
+        "categoria": ["Minimalista", "Blanco", "Sostenible"]
     },
     {
         "id": 2,
@@ -25,7 +28,7 @@ export const productsStore = [
         "coloresDisponibles": ["Negro"],
         "extras": ["Bolsillo interior", "Cinta marcadora"],
         "disponible": true,
-        "categoria": ["Profesional", "Cuadriculadas", "Sofisticado"]
+        "categoria": ["Profesional", "Cuadriculadas", "Sostenible"]
     },
     {
         "id": 3,
@@ -39,7 +42,7 @@ export const productsStore = [
         "coloresDisponibles": ["Gris", "Beige"],
         "extras": ["Portabolígrafos", "Bolsillo interior"],
         "disponible": true,
-        "categoria": ["Creativo", "Punteadas", "Diseño"]
+        "categoria": ["Blanco", "Cuadriculadas", "Sostenible"]
     },
     {
         "id": 4,
@@ -67,7 +70,7 @@ export const productsStore = [
         "coloresDisponibles": ["Menta", "Blanco"],
         "extras": ["Bolsillo trasero", "Cinta marcadora doble"],
         "disponible": true,
-        "categoria": ["Moderno", "Punteadas", "Bullet Journal"]
+        "categoria": ["Clásico", "Punteadas", "Bullet Journal"]
     },
     {
         "id": 6,
@@ -140,3 +143,22 @@ export const productsStore = [
         "categoria": ["Rústico", "Punteadas", "Sostenible"]
     }
 ];
+
+
+
+async function addProductsToDb(product) {
+    try {
+        const docAdded = await addDoc(collection(db, "products"), product)
+        console.log("Item agregado: " + docAdded.title)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+function addItems() {
+    productsStore.forEach(async (item) => {
+        await addProductsToDb(item);
+    })
+}
+
+addItems()
