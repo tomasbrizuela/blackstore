@@ -144,21 +144,3 @@ export const productsStore = [
     }
 ];
 
-
-
-async function addProductsToDb(product) {
-    try {
-        const docAdded = await addDoc(collection(db, "products"), product)
-        console.log("Item agregado: " + docAdded.title)
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-function addItems() {
-    productsStore.forEach(async (item) => {
-        await addProductsToDb(item);
-    })
-}
-
-addItems()

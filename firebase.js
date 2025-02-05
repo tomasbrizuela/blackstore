@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, getDoc, query, where, addDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { getFirestore, collection, getDocs, query, where, addDoc, deleteDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBjHZA1wNK-cWG0GSGAWuGWCcuhyWuXDG8",
@@ -12,6 +13,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
+export const auth = getAuth(app)
 
 export async function getItems() {
     let response = await getDocs(collection(db, "products"))
@@ -54,3 +56,19 @@ export async function addToCart(item) {
     }
 }
 
+async function getAll() {
+    let q = query(
+        collection(db, "products"),
+        // where("id", "==", 2)
+    )
+    let data = await getDocs(q)
+    let productos = data.docs.map(async (item) => {
+        if ((data.docs.filter(pro => pro.id == item.id)).length > 1) {
+            await deleteDoc(doc(db, "products", item.id))
+        }
+        return item.data();
+    })
+    console.log(productos.length)
+}
+
+getAll()
