@@ -1,10 +1,9 @@
 interface ProductParams {
     params: {
-        slug: string
-    }
+        slug: string;
+    };
 }
-
-export default function Slug({ params }: ProductParams) {
+export default async function Slug({ params }: ProductParams) {
     let { slug } = params;
     const isId = !isNaN(Number(slug));
     return (
