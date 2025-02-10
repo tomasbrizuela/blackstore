@@ -68,7 +68,4 @@ async function getAll() {
         }
         return item.data();
     })
-    console.log(productos.length)
 }
-
-getAll()

@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/products/[category]/page.js", "src/app/products/[category]/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/products/category/page.js", "src/app/products/category/page.js", "src/components/ui/AddToCartButton.js"],
   "exclude": ["node_modules"]
 }
