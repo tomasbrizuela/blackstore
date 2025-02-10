@@ -4,9 +4,9 @@ interface ProductParams {
     }
 }
 
-export default async function Slug({ params }: ProductParams) {
-    let { slug } = await params;
-    const isId = Number(slug);
+export default function Slug({ params }: ProductParams) {
+    let { slug } = params;
+    const isId = !isNaN(Number(slug));
     return (
         <div className='flex flex-col justify-center items-center w-screen h-80 gap-3'>
             <h1 className="font-bold text-4xl">Welcome to your home page</h1>
