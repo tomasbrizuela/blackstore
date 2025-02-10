@@ -1,9 +1,4 @@
-interface ProductParams {
-    params: {
-        slug: string;
-    };
-}
-export default function Slug({ params }: ProductParams) {
+export default function Slug({ params }) {
     let { slug } = params;
     const isId = !isNaN(Number(slug));
     return (
